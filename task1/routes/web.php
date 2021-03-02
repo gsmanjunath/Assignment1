@@ -28,3 +28,10 @@ Route::get('/admin','App\Http\Controllers\AdminController@index');//middleware a
 Route::view('details','userview');
 
 Route::post('submit','App\Http\Controllers\CompanyController@store');
+//----------------------------------------------------------------------------------
+//Session creation and usage
+
+Route::get('session/get','App\Http\Controllers\HomeController@accessSessionData');
+Route::get('session/set','App\Http\Controllers\HomeController@storeSessionData');
+Route::get('session/remove','App\Http\Controllers\HomeController@deleteSessionData');
+Route::get('session/flash','App\Http\Controllers\HomeController@flashSessionData');

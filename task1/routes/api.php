@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,25 @@ Route::get('/admin','App\Http\Controllers\AdminController@index');//middleware a
 Route::view('details','userview');
 
 Route::post('insert','App\Http\Controllers\CompanyController@store');
+
+
+//-------------------------------------------------------------------
+//crud operations,resource controller
+
+//fetching all record and paginations usage
+Route::get('/posts',[PostController::class,'index']);
+
+//creating new post into db
+Route::post('/post',[PostController::class,'store']);
+
+//fetching single record
+Route::get('/posts/{id}',[PostController::class,'show']);
+
+
+Route::put('/posts/{id}',[PostController::class,'update']);
+
+Route::delete('/posts/{id}',[PostController::class,'destroy']);
+
+
+
+
